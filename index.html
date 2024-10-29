@@ -35,11 +35,11 @@
         
         @keyframes moveFromCenter {
             from {
-                transform: translate(-50%, -50%) scale(0) translateZ(0);
+                transform: translate(-50%, -50%) scale(0.1) translateZ(0);
                 opacity: 1;
             }
             to {
-                transform: translate(var(--tx), var(--ty)) scale(2) translateZ(1000px);
+                transform: translate(var(--tx), var(--ty)) scale(3) translateZ(1000px);
                 opacity: 0;
             }
         }
@@ -51,60 +51,4 @@
             transform: translate(-50%, -50%);
             color: #ff0000;
             font-size: 3em;
-            font-family: Arial, sans-serif;
-            animation: pulse 2s infinite;
-            z-index: 1000;
-            text-shadow: 0 0 10px rgba(255,0,0,0.5);
-            font-weight: bold;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <div id="centerText">you got hacked...</div>
-    </div>
-    <script>
-        function createStar() {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            // Random size between 1 and 3 pixels
-            const size = Math.random() * 2 + 1;
-            star.style.width = size + 'px';
-            star.style.height = size + 'px';
-            
-            // Random angle for direction
-            const angle = Math.random() * Math.PI * 2;
-            const distance = Math.max(window.innerWidth, window.innerHeight);
-            
-            // Calculate final destination
-            const tx = Math.cos(angle) * distance;
-            const ty = Math.sin(angle) * distance;
-            
-            // Set custom CSS properties for animation
-            star.style.setProperty('--tx', `${tx}px`);
-            star.style.setProperty('--ty`, `${ty}px`);
-            
-            document.getElementById('container').appendChild(star);
-            
-            // Remove star after animation ends
-            star.addEventListener('animationend', () => {
-                star.remove();
-            });
-        }
-        
-        // Create multiple stars at intervals
-        setInterval(() => {
-            for(let i = 0; i < 3; i++) {
-                createStar();
-            }
-        }, 50);
-    </script>
-</body>
-</html>
+            font-family: Arial,
